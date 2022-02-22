@@ -9,12 +9,40 @@
  * @author LZ-FSDev
  * @see https://tinyurl.com/CheckDigitFRQ
  * @since 17.0.1
- * @version 0.0.1
+ * @version 0.0.2
  */
 public class CheckDigit {
+    /**
+     * Computes the check digit for a number according to the following rules:
+     * <ul>
+     *  <li>Multiply the first digit by 7, the second digit (if exists) by 6,
+     * the third digit (if exists) by 5, and so on. The length of num have a
+     * length of 1 to 6 (inclusive).
+     *  <li> Add the products calculated in the previous step.
+     *  <li>Extract the check digit, which is the right-most digit of the sum
+     * calculated in the previous step.
+     * </ul>
+     * 
+     * Example outputs:
+     * <ul>
+     *  <li>getCheck(283415) -> 6
+     *  <li>getCheck(2183) -> 2
+     * 
+     * @param num The number used for computing according to the rules above.
+     * @return The left-most digit of the total given based on the rules above.
+     * @since 0.0.2
+     */
     public static int getCheck(int num) {
-        /* to be implemented in part (a) */
-        return 0;
+        int total = 0;
+        int length = getNumberOfDigits(num);
+        int index = 1;
+        int multiplier = 7;
+        for (int i = 0; i < length; i++) {
+            total += getDigit(num, index)*multiplier;
+            multiplier--;
+            index++;
+        }
+        return total%10;
     }
 
     public static boolean isValid(int num) {
