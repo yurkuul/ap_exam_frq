@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * This question involves the use of check digits, which can be used to help
  * detect if an error has occurred when a number is entered or transmitted
@@ -9,9 +11,18 @@
  * @author LZ-FSDev
  * @see https://tinyurl.com/CheckDigitFRQ
  * @since 17.0.1
- * @version 0.0.2
+ * @version 0.0.3
  */
 public class CheckDigit {
+    public static void main(String[] args) {
+        System.out.println("getDigit(283415, 1) -> " + getDigit(283415, 1));
+        System.out.println("getDigit(283415, 5) -> " + getDigit(283415, 5));
+        System.out.println("getCheck(283415) -> " + getCheck(283415));
+        System.out.println("getCheck(2183) -> " + getCheck(2183));
+        System.out.println("isValid(1592) -> " + isValid(1592));
+        System.out.println("isValid(1593) -> " + isValid(1593));
+    }
+
     /**
      * Computes the check digit for a number according to the following rules:
      * <ul>
@@ -45,9 +56,24 @@ public class CheckDigit {
         return total%10;
     }
 
+    /**
+     * Returns whether or not the returned value of num without the ones digit
+     * from getCheck is equal to the ones digit of num.
+     * <ul>
+     *  <li>isValid(1592) -> true
+     *  <li>isValid(1593) -> false
+     * </ul>
+     * 
+     * @param num The value (without the ones digit) that is checked if the
+     * number returned is equal to the ones digit of num.
+     * @return True if num (without the ones digit) given to getCheck is equal
+     * to the ones digit of num.
+     * @since 0.0.3
+     */
     public static boolean isValid(int num) {
-        /* to be implemented in part (b) */
-        return false;
+        int getCheckValue = getCheck(num/10);
+        int onesDigit = num%10;
+        return (onesDigit == getCheckValue);
     }
 
     /**
