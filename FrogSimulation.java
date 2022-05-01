@@ -21,7 +21,7 @@
  * @author LZ-FSDev
  * @see https://tinyurl.com/FrogSimulationFRQ
  * @since 17.0.1
- * @version 0.0.1
+ * @version 0.0.2
  */
 public class FrogSimulation {
     //Distance, in inches, from the starting position to the goal.
@@ -45,15 +45,15 @@ public class FrogSimulation {
      * Returns an integer representing the distance (positive or negative), in
      * inches, to be moved when the frog hops. A positive distance represents a
      * move toward the goal. A negative distance represents a move away from
-     * the goal. The returned distance mayvary from call to call. Each time the
-     * frog hops, its position is adjusted by the value returned by a call to the
-     * hopDistance method.
+     * the goal. The returned distance may vary from call to call. Each time
+     * the frog hops, its position is adjusted by the value returned by a call
+     * to the hopDistance method.
      * 
      * @return Distance the frog moves when the frog hops.
-     * @since 0.0.1
+     * @since 0.0.2
      */
     private int hopDistance() {
-        return 0;
+        return (int)(Math.random()*10);
     }
 
     /**
