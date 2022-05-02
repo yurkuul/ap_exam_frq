@@ -70,9 +70,27 @@ public class FrogSimulation {
      * 
      * @return true if the frog successfully reached or passed the goal during
      * the simulation; false otherwise.
-     * @since 0.0.1
+     * @since 0.0.2
      */
     public boolean simulate() {
+        int currDistance = 0;
+        for (int i = 0; i < maxHops; i++) {
+            int distance = hopDistance();
+            //For testing/visual purposes
+            System.out.print(distance + ", ");
+            currDistance += distance;
+            if (currDistance >= goalDistance) {
+                //For testing/visual purposes
+                System.out.println("true");
+                return true;
+            } else if (currDistance < 0) {
+                //For testing/visual purposes
+                System.out.println("false");
+                return false;
+            }
+        }
+        //For testing/visual purposes
+        System.out.println("false");
         return false;
     }
 
@@ -86,9 +104,15 @@ public class FrogSimulation {
      * @param num The number of simulations to be run.
      * @return The number of simulations it took for the frog to
      * successfully reach or pass the goal.
-     * @since 0.0.1
+     * @since 0.0.2
      */
     public double runSimulations(int num) {
-        return 0.0;
+        int totalSuccesses = 0;
+        for (int i = 0; i < num; i++) {
+            if (simulate()) {
+                totalSuccesses++;
+            }
+        }
+        return (double)totalSuccesses/num;
     }
 }
