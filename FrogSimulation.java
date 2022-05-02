@@ -21,7 +21,7 @@
  * @author LZ-FSDev
  * @see https://tinyurl.com/FrogSimulationFRQ
  * @since 17.0.1
- * @version 0.0.2
+ * @version 0.0.3
  */
 public class FrogSimulation {
     //Distance, in inches, from the starting position to the goal.
@@ -39,6 +39,19 @@ public class FrogSimulation {
     public FrogSimulation(int dist, int numHops) {
         goalDistance = dist;
         maxHops = numHops;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Testing one simulation: FrogSimulation f1 = new FrogSimulation(25, 5)...");
+        FrogSimulation f1 = new FrogSimulation(25, 5);
+        System.out.println("simulate() results:");
+        f1.simulate();
+
+        System.out.println();
+
+        System.out.println("Testing 100 simulations: f1");
+        System.out.println("runSimulations(100) results:");
+        System.out.println(f1.runSimulations(100));
     }
 
     /**
