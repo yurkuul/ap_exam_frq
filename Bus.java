@@ -15,34 +15,37 @@
  * @author LZ-FSDev
  * @see https://tinyurl.com/BusFRQ
  * @since 17.0.1
- * @version 0.0.1
+ * @version 0.0.2
  */
 public class Bus {
     //Holds onto the current stop
     private int currStop;
     //Holds onto the total number of stops
     private int totalStops;
+    //Holds onto if the bus is moving forward or backwards
+    private boolean moveForward;
 
     /**
      * Constructs a bus with a specified number of stops from start to finish.
      * 
      * @param totalStops The total number of stops the bus takes from the start
      * to the finish.
-     * @since 0.0.1
+     * @since 0.0.2
      */
     public Bus(int totalStops) {
         this.totalStops = totalStops;
-        currStop = 0;
+        currStop = 1;
+        moveForward = true;
     }
 
     /**
      * Gets the current stop that the bus is at.
      * 
      * @return The stop that the bus is at.
-     * @since 0.0.1
+     * @since 0.0.2
      */
     private int getCurrentStop() {
-        return 0;
+        return currStop;
     }
 
     /**
@@ -50,9 +53,18 @@ public class Bus {
      * direction the bus is heading). If the bus is at the last or first stop,
      * the bus reverses direction.
      * 
-     * @since 0.0.1
+     * @since 0.0.2
      */
     private void move() {
-
+        if (currStop == totalStops) {
+            moveForward = false;
+        } else if (currStop == 1) {
+            moveForward = true;
+        }
+        if (moveForward) {
+            currStop++;
+        } else {
+            currStop--;
+        }
     }
 }
