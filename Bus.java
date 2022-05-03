@@ -15,7 +15,7 @@
  * @author LZ-FSDev
  * @see https://tinyurl.com/BusFRQ
  * @since 17.0.1
- * @version 0.0.2
+ * @version 0.0.3
  */
 public class Bus {
     //Holds onto the current stop
@@ -36,6 +36,36 @@ public class Bus {
         this.totalStops = totalStops;
         currStop = 1;
         moveForward = true;
+    }
+
+    public static void main(String[] args) {
+        //Below are tests of the statements/expressions from the question
+        Bus bus1 = new Bus(3);
+        Bus bus2 = new Bus(5);
+
+        System.out.println("Current stop of bus 1: " + bus1.getCurrentStop());
+
+        System.out.println("Moving bus 1...");
+        bus1.move();
+        System.out.println("Current stop of bus 1: " + bus1.getCurrentStop());
+
+        System.out.println("Moving bus 1...");
+        bus1.move();
+        System.out.println("Current stop of bus 1: " + bus1.getCurrentStop());
+
+        System.out.println("Moving bus 1...");
+        bus1.move();
+        System.out.println("Current stop of bus 1: " + bus1.getCurrentStop());
+
+        System.out.println("Moving bus 1...");
+        bus1.move();
+        System.out.println("Moving bus 1...");
+        bus1.move();
+        System.out.println("Current stop of bus 1: " + bus1.getCurrentStop());
+        System.out.println("Current stop of bus 1: " + bus1.getCurrentStop());
+
+        System.out.println("Current stop of bus 1: " + bus1.getCurrentStop());
+        System.out.println("Current stop of bus 2: " + bus2.getCurrentStop());
     }
 
     /**
